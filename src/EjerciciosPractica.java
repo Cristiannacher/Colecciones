@@ -42,19 +42,20 @@ public class EjerciciosPractica {
         String palabraMasRepetida = "";
         int value = 0;
         HashMap<String, Integer> map = new HashMap<>();
-        try (  Scanner reader = new Scanner(new FileReader(f))) {
-            limpiarPalabras = reader.next();
-            while (limpiarPalabras != null) {
+        try {
+            Scanner reader = new Scanner(new FileReader(f));
+            while (reader.hasNext()) {
+                limpiarPalabras = reader.next();
                 limpiarPalabras = limpiarPalabras.replace(".", "");
                 limpiarPalabras = limpiarPalabras.replace(",", "");
                 palabras.add(limpiarPalabras);
-                limpiarPalabras = reader.next();
             }
+            reader.close();
         } catch (FileNotFoundException fileNotFoundException) {
             System.out.println("No se ha encontrado el fi");
         }
         for (String palabra : palabras) {
-            if (map.containsValue(palabra)) {
+            if (map.containsKey(palabra)) {
                 map.put(palabra, map.get(palabra) + 1);
             } else {
                 map.put(palabra, 1);
@@ -65,6 +66,8 @@ public class EjerciciosPractica {
             if (map.get(palabra) > value) {
                 value = map.get(palabra);
                 palabraMasRepetida = palabra;
+            } else if (map.get(palabra) == value){
+                palabraMasRepetida = "Las palabras " + palabraMasRepetida + " " + palabra + " se repiten el mismo numero de veces";
             }
         }
         return palabraMasRepetida;

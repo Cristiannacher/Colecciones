@@ -6,8 +6,9 @@ public class Main {
 
         EjerciciosPractica practica = new EjerciciosPractica();
         HashSet<Integer> integers = new HashSet<>();
-        String[] palabras = {"hola","adios","Padre","vamos a ponernos","vamos a ponernos","vamos a ponernos","Padre","Padre"};
-        File fixero = new File("/media/alu10486050/Maxtor/1DAM/Programació/Colecciones/Resources/fixero.txt");
+        String[] palabras = {"hola","adios","padre","arroz","padre","padre","arroz","arroz"};
+        File fixero = new File("Resources/fixero.txt");
+
 
         integers.add(4);
         integers.add(3);
